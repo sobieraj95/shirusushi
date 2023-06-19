@@ -1,0 +1,242 @@
+.home-page {
+	width: 100%;
+	min-height: 100vh;
+	height: 100%;
+	display: flex;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	position: relative;
+	overflow-x: hidden;
+
+
+	.slide-fade-enter-active,
+	.slide-fade-leave-active {
+		transition: all 1s cubic-bezier(.65,-0.01,.01,1)
+	}
+
+	.slide-fade-enter-from,
+	.slide-fade-leave-to {
+		transform: translateY(-100vh);
+	}
+
+	& &__start-overlay {
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background-color: #222222;
+		z-index: 100;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 24px;
+
+		&--hidden {
+			display: none;
+		}
+	}
+
+	& &__overlay-icon {
+		width: 200px;
+		height: auto;
+		opacity: 0;
+		transition: all 1s ease-in;
+
+		&.active {
+			opacity: 1;
+		}
+	}
+
+	& &__overlay-progresbar {
+		height: 1px;
+		width: 100%;
+		// background-color: #4e4e4e;
+		position: relative;
+		overflow: hidden;
+	}
+
+	& &__overlay-progresbar-status {
+		width: 0;
+		height: 100%;
+		background-color: #ff3e3e;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	& &__header-icon {
+		width: 300px;
+		height: auto;
+		margin-top: 25px;
+		z-index: 2;
+	}
+
+	& &__nav-content {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
+	& &__wrapper {
+		position: absolute;
+		left: 0;
+		top: 0;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+	}
+
+	& &__menu {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	& &__menu-item {
+		flex: 0 0 calc(100vw / 4);
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		-webkit-transition: background-color 0.4s
+			cubic-bezier(0.4, 0.01, 0.165, 0.99);
+		transition: background-color 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+		// background-color: #161414;
+		color: #fff;
+		gap: 16px;
+		position: relative;
+
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.5);
+
+			.home-page__menu-desc {
+				opacity: 1;
+				top: 0;
+			}
+
+			.home-page__menu-bottom-box {
+				bottom: 50px;
+			}
+		}
+	}
+
+	& &__menu-header {
+		font-size: 28px;
+		line-height: 1.4em;
+	}
+
+	& &__menu-desc {
+		font-size: 16px;
+		line-height: 1.2em;
+		padding: 6px 12px;
+		background-color: rgba(238, 52, 75, 0.8);
+		border-radius: 100px;
+		position: relative;
+		top: -40px;
+		opacity: 0;
+		transition: all 0.4s;
+	}
+
+	& &__menu-bottom-box {
+		width: 100%;
+		height: fit-content;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		position: absolute;
+		bottom: -100px;
+		transition: all 0.4s;
+	}
+
+	& &__menu-bottom-icon {
+		width: 30px;
+		height: auto;
+
+		&.larger {
+			width: 35px;
+		}
+
+		svg {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	& &__menu-bottom-desc {
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 1.2em;
+		color: #ee344b;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4px;
+
+		span {
+			font-weight: 500;
+			color: #fff;
+		}
+	}
+
+	& &__background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 0;
+	}
+
+	.swiper {
+		width: 100%;
+		height: 100%;
+	}
+
+	.swiper-slide {
+		transition-duration: 4s !important;
+		display: block;
+		width: 100%;
+	}
+
+	.swiper-slide img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+	
+	// 	.swiper-slide-visible{
+	// 		animation-name: fadeIn;
+	// 		animation-duration: 10s ;
+	// 		animation-fill-mode: forwards;
+	// 		animation-timing-function: linear;
+	// 		animation-iteration-count: 1;
+
+	// 		@keyframes fadeIn {
+	// 			0% {
+	// 				-webkit-transform: scale(1);
+	// 				transform: scale(1);
+	// 			}
+
+	// 			100% {
+	// 				-webkit-transform: scale(1.2);
+	// 				transform: scale(1.2);
+	// 			}
+	// 		}
+	// 	}
+}

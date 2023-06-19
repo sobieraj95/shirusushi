@@ -1,0 +1,15 @@
+@import "styles/normalize.scss";
+@import "styles/root.scss";
+@import "styles/fonts.scss";
+@import "styles/mixins.scss";
+
+html,
+body,
+div {
+	font-family: "Quicksand", sans-serif !important;
+	@include black-scrollbar;
+}
+
+body {
+	background: #222222;
+}
