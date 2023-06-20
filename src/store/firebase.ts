@@ -7,40 +7,51 @@ const firebaseConfig = {
     projectId: "shirusushiv3",
     storageBucket: "shirusushiv3.appspot.com",
     messagingSenderId: "641154356304",
-    appId: "1:641154356304:web:34cba753fa8cf72522ad55",
-    measurementId: "G-TF47BVKCKH"
+    appId: "1:641154356304:web:ddffee625ae42aed22ad55",
+    measurementId: "G-N5PN76HJQH"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 export { db };
 
-// import { collection, doc, setDoc } from "firebase/firestore";
+// const readAllData = async () => {
+//   await onSnapshot(query(collection(db, "menu"), orderBy('category', 'asc')), (querySnapshot) => {
+//     let fbMenu: any = [];
+//     querySnapshot.forEach((doc) => {
+//       const menu = {
+//         id: doc.id,
+//         category: doc.data().category,
+//         name: doc.data().name,
+//         description: doc.data().description,
+//         price: doc.data().price,
+//         unit: doc.data().unit,
+//       };
+//       fbMenu.push(menu);
+//     });
+//     store.allMenu = fbMenu;
+//   });
+// }
 
-// const citiesRef = collection(db, "cities");
+// const readAllCategories = async () => {
+//   await onSnapshot(query(collection(db, "categories"), orderBy('sequence', 'asc')), (querySnapshot) => {
+//     let fbCategories: any = [];
+//     querySnapshot.forEach((doc) => {
+//       const cat = {
+//         id: doc.id,
+//         name: doc.data().name,
+//         sequence: doc.data().sequence,
+//         fullName: doc.data().fullName,
+//       };
+//       fbCategories.push(cat);
+//     });
+//     store.allCategoriesMenu = fbCategories;
+//   });
+// }
 
-// await setDoc(doc(citiesRef, "SF"), {
-//     name: "San Francisco", state: "CA", country: "USA",
-//     capital: false, population: 860000,
-//     regions: ["west_coast", "norcal"]
-// });
-// await setDoc(doc(citiesRef, "LA"), {
-//     name: "Los Angeles", state: "CA", country: "USA",
-//     capital: false, population: 3900000,
-//     regions: ["west_coast", "socal"]
-// });
-// await setDoc(doc(citiesRef, "DC"), {
-//     name: "Washington, D.C.", state: null, country: "USA",
-//     capital: true, population: 680000,
-//     regions: ["east_coast"]
-// });
-// await setDoc(doc(citiesRef, "TOK"), {
-//     name: "Tokyo", state: null, country: "Japan",
-//     capital: true, population: 9000000,
-//     regions: ["kanto", "honshu"]
-// });
-// await setDoc(doc(citiesRef, "BJ"), {
-//     name: "Beijing", state: null, country: "China",
-//     capital: true, population: 21500000,
-//     regions: ["jingjinji", "hebei"]
-// });
+// przypisywanie każdemu elementowi menu jego kategorii + danych
+// state.menu.forEach((el: any) => {
+    //     el.categoryData = store.allCategoriesMenu.find((cat: any) => cat.name === el.category)
+    //     console.log('elementeee', el);
+    // })
+    // state.menuEl = _.orderBy(state.menu, ['categoryData.sequence'], ['asc']);

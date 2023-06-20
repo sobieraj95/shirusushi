@@ -1,40 +1,51 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@views/HomeView/HomeView.vue'
+import AdminView from '@views/AdminView/AdminView.vue'
+
+const About = () => import('@components/About/About.vue')
+const News = () => import('@components/News/News.vue')
+const Menu = () => import('@components/Menu/Menu.vue')
+const Gallery = () => import('@components/Gallery/Gallery.vue')
+const Catering = () => import('@components/Catering/Catering.vue')
+const Contact = () => import('@components/Contact/Contact.vue')
+const AdminNews = () => import('@/components/_admin/AdminNews/AdminNews.vue')
+const AdminMenu = () => import('@/components/_admin/AdminMenu/AdminMenu.vue')
+
 const routes = [
   {
     path: '/',
     component: HomeView,
     children: [{
       path: 'about',
-      component: () => import('@components/About/About.vue'),
+      component: About,
     }, {
       path: 'news',
-      component: () => import('@components/News/News.vue'),
+      component: News,
     }, {
       path: 'menu',
-      component: () => import('@components/Menu/Menu.vue'),
+      component: Menu,
     }, {
       path: 'gallery',
-      component: () => import('@components/Gallery/Gallery.vue'),
+      component: Gallery,
     }, {
       path: 'catering',
-      component: () => import('@components/Catering/Catering.vue'),
+      component: Catering,
     }, {
       path: 'contact',
-      component: () => import('@components/Contact/Contact.vue'),
+      component: Contact,
     }
     ]
   },
   {
     path: '/admin',
-    component: () => import('@views/AdminView/AdminView.vue'),
+    component: AdminView,
     children: [{
       path: 'news',
-      component: () => import('@/components/_admin/AdminNews/AdminNews.vue'),
+      component: AdminNews,
     }, {
       path: 'menu',
-      component: () => import('@/components/_admin/AdminMenu/AdminMenu.vue'),
+      component: AdminMenu,
     }]
   },
 ]

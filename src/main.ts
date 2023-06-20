@@ -5,7 +5,6 @@ import { registerPlugins } from '@/plugins'
 import '../src/config/main.scss';
 import { FontAwesomeIcon } from '@/plugins/fontAwesoneIcons'
 
-
 const app = createApp(App)
 registerPlugins(app)
 app.component('font-awesome-icon', FontAwesomeIcon)
