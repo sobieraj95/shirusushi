@@ -1,5 +1,5 @@
 <template>
-    <v-container class="bg-surface-variant">
+    <!-- <v-container class="bg-surface-variant">
         <v-text-field v-model="state.searchValue" @input="searchItem"></v-text-field>
         <v-row>
             <v-col lg="1">
@@ -70,12 +70,12 @@
                 </v-icon>
             </v-col>
         </v-row>
-    </v-container>
+    </v-container> -->
 </template>
 <style lang="scss">
 @import "AdminMenu.scss";
 </style>
-<script setup>
+<script setup lang="ts">
 // import { onMounted, reactive, ref } from 'vue'
 // import { collection, updateDoc, getDoc, addDoc, doc, deleteDoc, query, where, onSnapshot, orderBy } from "firebase/firestore";
 // // import { collection, getDocs } from 'firebase/firestore'
@@ -197,9 +197,9 @@
 //     });
 // }
 
-onMounted(() => {
-    // readAllData()
-})
+// onMounted(() => {
+//     // readAllData()
+// })
 // interface IProps {}
 // defineProps<IProps>()
 

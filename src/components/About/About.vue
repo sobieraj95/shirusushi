@@ -1,7 +1,7 @@
 <template>
     About
 </template>
-<script setup>
+<script setup lang="ts">
 // interface IProps {}
 // defineProps<IProps>()
 
