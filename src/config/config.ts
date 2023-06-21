@@ -85,13 +85,13 @@ export const restaurantData = {
 export const starterDataCategories = [
     {
         "order": 1,
-        "fullName": "Hosomaki ",
+        "fullName": "Hosomaki",
         "name": "hosomaki",
         "description": "cienkie rolki z niewielką ilością ryżu zazwyczaj z jednym składnikiem 8szt."
     },
     {
         "order": 2,
-        "fullName": "Uramaki ",
+        "fullName": "Uramaki",
         "name": "uramaki",
         "description": "rolki z ryżem na zewnątrz posypane sezamem, zwykle jednoskładnikowe 8szt."
     },
@@ -493,7 +493,7 @@ export const starterDataMenuItems = [
     {
         "id": 30,
         "name": "Tykwa",
-        "category": "uramaki ",
+        "category": "uramaki",
         "description": "",
         "price": 17,
         "priceAdditional": null,
@@ -503,7 +503,7 @@ export const starterDataMenuItems = [
     {
         "id": 31,
         "name": "Oshinko",
-        "category": "uramaki ",
+        "category": "uramaki",
         "description": "",
         "price": 17,
         "priceAdditional": null,
@@ -513,7 +513,7 @@ export const starterDataMenuItems = [
     {
         "id": 32,
         "name": "Serek, ogórek",
-        "category": "uramaki ",
+        "category": "uramaki",
         "description": "",
         "price": 17,
         "priceAdditional": null,
@@ -523,7 +523,7 @@ export const starterDataMenuItems = [
     {
         "id": 33,
         "name": "Serek, awokado",
-        "category": "uramaki ",
+        "category": "uramaki",
         "description": "",
         "price": 18,
         "priceAdditional": null,
@@ -533,7 +533,7 @@ export const starterDataMenuItems = [
     {
         "id": 34,
         "name": "Serek, mango",
-        "category": "uramaki ",
+        "category": "uramaki",
         "description": "",
         "price": 18,
         "priceAdditional": null,
@@ -543,7 +543,7 @@ export const starterDataMenuItems = [
     {
         "id": 35,
         "name": "Surimi",
-        "category": "uramaki ",
+        "category": "uramaki",
         "description": "",
         "price": 21,
         "priceAdditional": null,
@@ -553,7 +553,7 @@ export const starterDataMenuItems = [
     {
         "id": 36,
         "name": "Krewetka",
-        "category": "uramaki ",
+        "category": "uramaki",
         "description": "",
         "price": 22,
         "priceAdditional": null,
@@ -563,7 +563,7 @@ export const starterDataMenuItems = [
     {
         "id": 37,
         "name": "Łosoś/łosoś grillowany",
-        "category": "uramaki ",
+        "category": "uramaki",
         "description": "",
         "price": 23,
         "priceAdditional": null,
@@ -573,7 +573,7 @@ export const starterDataMenuItems = [
     {
         "id": 38,
         "name": "Łosoś wędzony",
-        "category": "uramaki ",
+        "category": "uramaki",
         "description": "",
         "price": 24,
         "priceAdditional": null,
@@ -583,7 +583,7 @@ export const starterDataMenuItems = [
     {
         "id": 39,
         "name": "Ryba maślana",
-        "category": "uramaki ",
+        "category": "uramaki",
         "description": "",
         "price": 27,
         "priceAdditional": null,
@@ -593,7 +593,7 @@ export const starterDataMenuItems = [
     {
         "id": 40,
         "name": "Węgorz",
-        "category": "uramaki ",
+        "category": "uramaki",
         "description": "",
         "price": 27,
         "priceAdditional": null,
@@ -603,7 +603,7 @@ export const starterDataMenuItems = [
     {
         "id": 41,
         "name": "Tuńczyk",
-        "category": "uramaki ",
+        "category": "uramaki",
         "description": "",
         "price": 29,
         "priceAdditional": null,
@@ -1103,7 +1103,7 @@ export const starterDataMenuItems = [
     {
         "id": 91,
         "name": "Gunkan łosoś",
-        "category": "gunkanmaki ",
+        "category": "gunkanmaki",
         "description": "",
         "price": 16,
         "priceAdditional": null,
@@ -1113,7 +1113,7 @@ export const starterDataMenuItems = [
     {
         "id": 92,
         "name": "Gunkan tuńczyk",
-        "category": "gunkanmaki ",
+        "category": "gunkanmaki",
         "description": "",
         "price": 18,
         "priceAdditional": null,
@@ -1123,7 +1123,7 @@ export const starterDataMenuItems = [
     {
         "id": 93,
         "name": "Gunkan tatar",
-        "category": "gunkanmaki ",
+        "category": "gunkanmaki",
         "description": "łosoś,por,kapary",
         "price": 20,
         "priceAdditional": null,
