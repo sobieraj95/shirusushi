@@ -67,8 +67,7 @@
                 <div class="notepad__header" :class="{ 'empty': !isNotepadEmpty }">
                     <div class="notepad__header-title">Twój notatnik</div>
                     <v-switch color="#ee344b" class="notepad__header-dropdown" v-model="state.notepadEatInRestaurant"
-                        hide-details true-value="Na wynos" false-value="Na miejscu"
-                        :label="`${state.notepadEatInRestaurant}`"></v-switch>
+                        hide-details :label="`${state.notepadEatInRestaurant}`"></v-switch>
                 </div>
                 <div class="notepad__empty" v-if="isNotepadEmpty">
                     <div class="notepad__empty-icon">
@@ -94,7 +93,7 @@
                         <div class="notepad__item-row">
                             <div class="notepad__item-amount">{{ item.count }}x&nbsp;</div>
                             <div class="notepad__item-name">{{ item.name }}</div>
-                            <div class="notepad__item-price">{{ item.price }} zł</div>
+                            <div class="notepad__item-price">{{ item.price * item.count }} zł</div>
                         </div>
                         <div class="notepad__item-row">
                             <div class="notepad__item-category">{{ getCategoryFullName(item.category) }}</div>
@@ -108,20 +107,22 @@
                     </div>
                 </div>
                 <div class="notepad__summary" v-if="!isNotepadEmpty">
-                    <div class="notepad__sum-box">
+                    <div class="notepad__sum-box" v-if="state.notepadEatInRestaurant">
                         <div class="notepad__sum-box-title">Opakowania</div>
-                        <div class="notepad__sum-box-price">6 zł</div>
+                        <div class="notepad__sum-box-price">{{ getPackagesCost }} zł</div>
                     </div>
                     <div class="notepad__sum-box">
                         <div class="notepad__sum-box-title">Napiwki</div>
-                        <div class="notepad__sum-box-price">5% = 12 zł</div>
+                        <div class="notepad__sum-box-price">{{ state.notepadTips ? `${state.notepadTips}% =
+                                                    ${((state.notepadTips / 100) * getNotepadItemsCost).toFixed(1)} zł`
+                            : '' }}</div>
                     </div>
                     <div class="notepad__sum-box">
-                        SUWACZEK TUTAJ
+                        <v-slider v-model="state.notepadTips" :min="0" :max="20" :step="2.5" thumb-label></v-slider>
                     </div>
-                    <div class="notepad__sum-box-center">
-                        <div class="notepad__sum-box-title">RAZEM</div>
-                        <div class="notepad__sum-box-price">152 zł</div>
+                    <div class="notepad__sum-box center">
+                        <!-- <div class="notepad__sum-box-title">RAZEM:</div> -->
+                        <div class="notepad__sum-box-price total">{{ getNotepadTotalCostWithPackagesAndTips }} zł</div>
                     </div>
                 </div>
 
@@ -140,7 +141,24 @@ const state = reactive({
     notepad: [] as any,
     sortedMenu: [] as any,
     sortedCategories: [] as any,
-    notepadEatInRestaurant: false as boolean
+    notepadEatInRestaurant: false as boolean,
+    packageCost: 2 as number,
+    notepadTips: 0 as any,
+})
+
+const getNotepadItemsCost = computed(() => {
+    return state.notepad.map((item: any) => item.count * item.price).reduce((a: any, b: any) => a + b, 0);
+})
+const getPackagesCost = computed(() => {
+    return state.notepadEatInRestaurant ? state.notepad.map((item: any) => item.count * state.packageCost).reduce((a: any, b: any) => a + b, 0) : 0;
+})
+
+const getNotepadCostWithPackages = computed(() => {
+    return state.notepadEatInRestaurant ? state.notepad.map((item: any) => item.count * item.price).reduce((a: any, b: any) => a + b, 0) : 0;
+})
+
+const getNotepadTotalCostWithPackagesAndTips = computed(() => {
+    return getNotepadItemsCost.value + getPackagesCost.value + getNotepadItemsCost.value * (state.notepadTips / 100);
 })
 
 const getCategoryFullName = ((cat: string) => {

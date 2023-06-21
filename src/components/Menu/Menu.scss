@@ -172,7 +172,7 @@
 		justify-content: center;
 		gap: 4px;
 		cursor: pointer;
-		
+
 		svg {
 			padding: 1px;
 			border: 1px solid #ee344b;
@@ -396,7 +396,7 @@
 			display: flex;
 			flex-direction: column;
 			width: 100%;
-			gap: 12px;
+			gap: 6px;
 		}
 
 		&__item {
@@ -446,6 +446,56 @@
 				padding: 1px;
 				border: 1px solid #ee344b;
 				border-radius: 2px;
+			}
+		}
+
+		&__summary {
+			padding-top: 8px;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			gap: 16px;
+		}
+
+		&__sum-box {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			&.center {
+				flex-direction: column;
+				justify-content: center;
+				gap: 6px;
+			}
+		}
+
+		&__sum-box-title,
+		&__sum-box-price {
+			font-size: 14px;
+			line-height: 1.4em;
+			font-weight: 500;
+
+			&.total {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 10px 12px;
+				border-radius: 4px;
+				width: 100%;
+				background: #ee344b;
+				font-size: 18px;
+				font-weight: 500;
+				line-height: 1.4em;
+				position: relative;
+				cursor: pointer;
+				transition: all 0.2s ease-in-out;
+
+				&:hover {
+					background: #f51c35;
+				}
 			}
 		}
 	}
