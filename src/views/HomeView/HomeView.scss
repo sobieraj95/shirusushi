@@ -8,11 +8,11 @@
 	align-items: center;
 	justify-content: flex-start;
 	position: relative;
-
+	background: #000;
 
 	.slide-fade-enter-active,
 	.slide-fade-leave-active {
-		transition: all 1s cubic-bezier(.65,-0.01,.01,1)
+		transition: all 1s cubic-bezier(0.65, -0.01, 0.01, 1);
 	}
 
 	.slide-fade-enter-from,
@@ -26,7 +26,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		background-color: #222222;
+		background-color: #000;
 		z-index: 100;
 		display: flex;
 		align-items: center;
@@ -51,7 +51,7 @@
 	}
 
 	& &__overlay-progresbar {
-		height: 1px;
+		height: 2px;
 		width: 100%;
 		// background-color: #4e4e4e;
 		position: relative;
@@ -215,10 +215,10 @@
 
 	.swiper-slide img {
 		width: 100%;
-		height: auto;
+		height: 100%;
 		object-fit: cover;
 	}
-	
+
 	// 	.swiper-slide-visible{
 	// 		animation-name: fadeIn;
 	// 		animation-duration: 10s ;

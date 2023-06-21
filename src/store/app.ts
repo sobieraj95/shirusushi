@@ -1,12 +1,13 @@
 import { defineStore } from 'pinia'
-import { starterDataCategories, starterDataMenuItems, menuNav, menuBackgrounds } from '@/config/config';
+import { starterDataCategories, starterDataMenuItems, menuNav, menuBackgrounds, restaurantData } from '@/config/config';
 
 export const useStore = defineStore('app', {
   state: () => ({
     menuNav: menuNav,
     menuBackgrounds: menuBackgrounds,
     menuAllItems: starterDataMenuItems,
-    menuAllCategories: starterDataCategories
+    menuAllCategories: starterDataCategories,
+    restaurantData: restaurantData
   })
 
   // actions: {
