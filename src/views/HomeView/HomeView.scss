@@ -20,6 +20,17 @@
 		transform: translateY(-100vh);
 	}
 
+	.custom-enter-active,
+	.custom-leave-active {
+		transition: all 1s;
+		transform: height(100vh);
+	}
+
+	.custom-enter-from,
+	.custom-leave-to {
+		transform: height(0);
+	}
+
 	& &__start-overlay {
 		width: 100%;
 		height: 100%;

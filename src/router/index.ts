@@ -2,10 +2,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@views/HomeView/HomeView.vue'
 import AdminView from '@views/AdminView/AdminView.vue'
-
+import Menu from '@components/Menu/Menu.vue'
 const About = () => import('@components/About/About.vue')
 const News = () => import('@components/News/News.vue')
-const Menu = () => import('@components/Menu/Menu.vue')
+// const Menu = () => import('@components/Menu/Menu.vue')
 const Gallery = () => import('@components/Gallery/Gallery.vue')
 const Catering = () => import('@components/Catering/Catering.vue')
 const Contact = () => import('@components/Contact/Contact.vue')

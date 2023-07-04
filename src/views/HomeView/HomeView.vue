@@ -9,71 +9,77 @@
         </div>
       </div>
     </Transition>
-    <div class="home-page__nav-content">
-      <img src="../../assets/overlay-icon.png" alt="icon" class="home-page__header-icon" />
-      <div class="home-page__wrapper">
-        <div class="home-page__menu">
-          <div class="home-page__menu-item" v-for="menuItem in store.menuNav" :key="menuItem.id"
-            @click="changeActiveView(menuItem.viewPath)">
-            <div class="home-page__menu-header">{{ menuItem.header }}</div>
-            <div class="home-page__menu-desc">{{ menuItem.description }}</div>
-            <div class="home-page__menu-bottom-box">
-              <div class="home-page__menu-bottom-icon" :class="{ 'larger': menuItem.icon === 'handshake' }">
-                <font-awesome-icon :icon="menuItem.icon" />
+    <Transition name="custom">
+      <div class="home-page__nav-content" v-if="router.currentRoute.value.path === '/'">
+        <!-- <div class="home-page__nav-content"> -->
+        <img src="../../assets/overlay-icon.png" alt="icon" class="home-page__header-icon" />
+        <div class="home-page__wrapper">
+          <div class="home-page__menu">
+            <div class="home-page__menu-item" v-for="menuItem in store.menuNav" :key="menuItem.id"
+              @click="changeActiveView(menuItem.viewPath)">
+              <div class="home-page__menu-header">{{ menuItem.header }}</div>
+              <div class="home-page__menu-desc">{{ menuItem.description }}</div>
+              <div class="home-page__menu-bottom-box">
+                <div class="home-page__menu-bottom-icon" :class="{ 'larger': menuItem.icon === 'handshake' }">
+                  <font-awesome-icon :icon="menuItem.icon" />
+                </div>
+                <div class="home-page__menu-bottom-desc" v-html="menuItem.iconDescription" />
               </div>
-              <div class="home-page__menu-bottom-desc" v-html="menuItem.iconDescription" />
             </div>
           </div>
         </div>
+        <swiper :effect="'fade'" :modules="modules" :slides-per-view="1" class="home-page__background"
+          :autoplay="{ delay: 8000 }">
+          <swiper-slide>
+            <img src="../../assets/menu-backgrounds/menu-1.jpg" alt="menu-background"
+              class="home-page__background-image" />
+          </swiper-slide>
+          <swiper-slide>
+            <img src="../../assets/menu-backgrounds/menu-2.jpg" alt="menu-background"
+              class="home-page__background-image" />
+          </swiper-slide>
+          <swiper-slide>
+            <img src="../../assets/menu-backgrounds/menu-3.jpg" alt="menu-background"
+              class="home-page__background-image" />
+          </swiper-slide>
+        </swiper>
       </div>
-      <swiper :effect="'fade'" :modules="modules" :slides-per-view="1" class="home-page__background"
-        :autoplay="{ delay: 8000 }">
-        <swiper-slide>
-          <img src="../../assets/menu-backgrounds/menu-1.jpg" alt="menu-background" class="home-page__background-image" />
-        </swiper-slide>
-        <swiper-slide>
-          <img src="../../assets/menu-backgrounds/menu-2.jpg" alt="menu-background" class="home-page__background-image" />
-        </swiper-slide>
-        <swiper-slide>
-          <img src="../../assets/menu-backgrounds/menu-3.jpg" alt="menu-background" class="home-page__background-image" />
-        </swiper-slide>
-      </swiper>
-    </div>
+    </Transition>
     <div class="home-page__content">
       <RouterView />
     </div>
-
   </div>
 </template>
 <script lang="ts" setup>
 import { onMounted, reactive } from 'vue';
-
+import { useStore } from '@/store/app';
+import { useRouter } from 'vue-router';
 import { EffectFade, Autoplay, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import "swiper/css/effect-fade";
+import { watch } from 'fs';
 const modules = [EffectFade, Autoplay, A11y,];
 
-import router from '../../router/index';
-import { useStore } from '@/store/app';
+const router = useRouter()
 
 const store = useStore();
 
 const state = reactive({
-
   overlayStatus: 0,
 })
 
 const changeActiveView = (viewPath: string) => {
+  console.log(`router przed`, router.currentRoute.value.path);
   router.push(viewPath);
-  setTimeout(() => {
-    const element: Element | null = document?.querySelector('.home-page__content');
-    element?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, 10);
+  console.log(`router po`, router);
+  // setTimeout(() => {
+  //   const element: Element | null = document?.querySelector('.home-page__content');
+  //   element?.scrollIntoView({ behavior: "smooth", block: "start" });
+  // }, 10);
   store.menuNav.forEach((view) => {
     view.viewStatus = view.viewPath === viewPath
   });
-
 };
 
 const runOverlay = () => {
@@ -90,10 +96,6 @@ const runOverlay = () => {
   }, 10);
 }
 
-
-
-
-
 onMounted(async () => {
   setTimeout(runOverlay, 100);
   const menuWrapper: Element | null = document?.querySelector('.home-page__wrapper');
@@ -104,6 +106,10 @@ onMounted(async () => {
     menuWrapper.scrollLeft = posCalc;
   });
 })
+
+const watchIsRouteChangeAndLoadDynamicViewInstantly = () => {
+  router.currentRoute.value.path === '/' ? changeActiveView('/menu') : changeActiveView('/')
+}
 
 
 // interface IProps {}
