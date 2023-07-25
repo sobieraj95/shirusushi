@@ -17,100 +17,77 @@
                         <div class="menu__cat-title">{{ cat.fullName }}</div>
                         <div class="menu__cat-desc">{{ cat.description }}</div>
                         <div class="menu__items">
-                            <div class="menu__item2" v-for=" menu  in  getMenuByCategory(cat.name)" :key="menu.name">
-                                <div class="menu__item2-desc-block">
-                                    <div class="menu__item2-name">{{ menu.name }}</div>
-                                    <div class="menu__item2-desc" v-if="menu.description">{{ menu.description }}</div>
-                                </div>
-                                <div class="menu__item2-price-block">
-                                    <div class="menu__item2-price-controls"
-                                        :class="{ 'additional-price': menu.priceAdditional }">
-                                        <div class="menu__item2-price-portion" v-if="menu.priceAdditional">
-                                            Mała
+                            <div class="menu__item" v-for=" menu  in  getMenuByCategory(cat.name)" :key="menu.name">
+                                <div class="menu__item-desc-block">
+                                    <div class="menu__top-box">
+                                        <div class="menu__item-name">{{ menu.name }}
+                                            <div class="menu__item-photo-icon" v-if="menu.imageUrl"><font-awesome-icon icon="magnifying-glass" /></div>
                                         </div>
-                                        <div class="menu__item2-price">
-                                            {{ menu.price }} zł
-                                        </div>
-                                        <Transition>
-                                            <div class="menu__amount-controls" v-if="findItemWithBigPortion(menu)">
-                                                <font-awesome-icon class=" menu__item2-amount-plus" icon="fa-solid fa-plus"
-                                                    @click="addToNotepad(menu)" />
-                                                <font-awesome-icon class="menu__item2-amount-minus" icon="fa-solid fa-minus"
-                                                    @click="removeFromNotepad(menu)" />
-                                            </div>
-                                        </Transition>
-                                    </div>
-                                    <div class="menu__item2-price-controls"
-                                        :class="{ 'additional-price': menu.priceAdditional }" v-if="menu.priceAdditional">
-                                        <div class="menu__item2-price-portion" v-if="menu.priceAdditional">
-                                            Duża
-                                        </div>
-                                        <div class="menu__item2-price">
-                                            {{ menu.priceAdditional }} zł
-                                        </div>
-                                        <Transition>
-                                            <div class="menu__amount-controls" v-if="findItemWithBigPortion(menu, true)">
-                                                <font-awesome-icon class="menu__item2-amount-minus" icon="fa-solid fa-minus"
-                                                    @click="removeFromNotepad(menu, true)" />
-                                                <font-awesome-icon class="menu__item2-amount-plus" icon="fa-solid fa-plus"
-                                                    @click="addToNotepad(menu, true)" />
-                                            </div>
-                                        </Transition>
-                                    </div>
-
-
-
-                                    <!-- <div class="menu__item-price-box">
-                                        <div class="menu__item-price-controls"
-                                            :class="{ 'additional-price': menu.priceAdditional }">
-                                            <div class="menu__item-price-portion" v-if="menu.priceAdditional">
-                                                Mniejsza porcja
-                                            </div>
-                                            <div class="menu__item-price">
-                                                {{ menu.price }} zł
-                                            </div>
-                                            <Transition>
-                                                <div class="menu__amount-controls" v-if="findItemWithBigPortion(menu)">
-                                                    <font-awesome-icon class="menu__item-amount-minus"
-                                                        icon="fa-solid fa-minus" @click="removeFromNotepad(menu)" />
-                                                    <font-awesome-icon class=" menu__item-amount-plus"
-                                                        icon="fa-solid fa-plus" @click="addToNotepad(menu)" />
+                                        <div class="menu__item-count">
+                                            <Transition name="slide-up-second">
+                                                <div class="menu__item-name-count" v-if="findItemWithBigPortion(menu)">{{
+                                                    findItemWithBigPortion(menu).count
+                                                }}x&nbsp;<span class="menu__item-name-portion">Mała</span></div>
+                                            </Transition>
+                                            <Transition name="slide-up-second">
+                                                <div class="menu__item-name-count"
+                                                    v-if="findItemWithBigPortion(menu, true)">{{
+                                                        findItemWithBigPortion(menu,
+                                                            true).count }}x&nbsp;<span class="menu__item-name-portion">Duża</span>
                                                 </div>
                                             </Transition>
                                         </div>
-                                        <div class="menu__item-price-controls"
-                                            :class="{ 'additional-price': menu.priceAdditional }"
-                                            v-if="menu.priceAdditional">
-                                            <div class="menu__item-price-portion" v-if="menu.priceAdditional">
-                                                Większa porcja
-                                            </div>
-                                            <div class="menu__item-price">
-                                                {{ menu.priceAdditional }} zł
-                                            </div>
-                                            <Transition>
-                                                <div class="menu__amount-controls"
+
+                                    </div>
+                                    <div class="menu__item-desc" v-if="menu.description">{{ menu.description }}</div>
+                                </div>
+                                <div class="menu__item-price-block">
+                                    <div class="menu__item-price-box">
+                                        <div class="menu__item-price-portion" v-if="menu.priceAdditional">
+                                            Mała
+                                        </div>
+                                        <div class="menu__item-price">
+                                            {{ menu.price }} zł
+                                        </div>
+                                        <div class="menu__price-buttons">
+                                            <Transition name="slide-up">
+                                                <div class="menu__item-amount-controls" v-if="findItemWithBigPortion(menu)">
+                                                    <font-awesome-icon class=" menu__item-amount-plus"
+                                                        icon="fa-solid fa-plus" @click="addToNotepad(menu)" />
+                                                    <font-awesome-icon class="menu__item-amount-minus"
+                                                        icon="fa-solid fa-minus" @click="removeFromNotepad(menu)" />
+                                                </div>
+                                                <div class="menu__item-add-button" v-else @click="addToNotepad(menu)">
+                                                    Dodaj
+                                                </div>
+                                            </Transition>
+                                        </div>
+
+                                    </div>
+                                    <div class="menu__item-price-box" v-if="menu.priceAdditional">
+                                        <div class="menu__item-price-portion" v-if="menu.priceAdditional">
+                                            Duża
+                                        </div>
+                                        <div class="menu__item-price">
+                                            {{ menu.priceAdditional }} zł
+                                        </div>
+                                        <div class="menu__price-buttons">
+                                            <Transition name="slide-up">
+                                                <div class="menu__item-amount-controls"
                                                     v-if="findItemWithBigPortion(menu, true)">
                                                     <font-awesome-icon class="menu__item-amount-minus"
                                                         icon="fa-solid fa-minus" @click="removeFromNotepad(menu, true)" />
                                                     <font-awesome-icon class="menu__item-amount-plus"
                                                         icon="fa-solid fa-plus" @click="addToNotepad(menu, true)" />
                                                 </div>
-                                            </Transition>
-                                        </div>
-                                    </div> -->
-                                    <div class="menu__item2-add-buttons">
-                                        <div class="menu__item2-add-button" @click="addToNotepad(menu)">
-                                            Dodaj do notatnika
-                                            <span v-if="findItemWithBigPortion(menu)">Suma: {{
-                                                findItemWithBigPortion(menu).count
-                                            }}</span>
-                                        </div>
-                                        <div class="menu__item2-add-button" @click="addToNotepad(menu, true)"
-                                            v-if="menu.priceAdditional">
-                                            Dodaj do notatnika
-                                            <span v-if="findItemWithBigPortion(menu, true)">Suma: {{
+                                                <div class="menu__item-add-button" v-else @click="addToNotepad(menu, true)"
+                                                    v-if="menu.priceAdditional">
+                                                    Dodaj
+                                                    <!-- <span v-if="findItemWithBigPortion(menu, true)">Suma: {{
                                                 findItemWithBigPortion(menu,
-                                                    true).count }}</span>
+                                                    true).count }}</span> -->
+                                                </div>
+                                            </Transition>
                                         </div>
                                     </div>
                                 </div>
@@ -354,6 +331,4 @@ onMounted(() => {
     state.sortedCategories[0].active = true;
 })
 </script>
-<style lang="scss">
-@import "Menu.scss";
-</style>
+<style lang="scss">@import "Menu.scss";</style>
