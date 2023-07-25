@@ -7,9 +7,21 @@ html,
 body,
 div {
 	font-family: "Quicksand", sans-serif !important;
+	color: #fff;
 	@include black-scrollbar;
+	// overflow: visible;
 }
 
 body {
-	background: #222222;
+	background: #fff;
+}
+
+.scale-down-enter-active,
+.scale-down-leave-active {
+	transition: all 0.3s ease-in-out;
+}
+
+.scale-down-enter-from,
+.scale-down-leave-to {
+	transform: scale(0) translateY(-20px);
 }

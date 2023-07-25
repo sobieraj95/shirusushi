@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { starterDataCategories, starterDataMenuItems, menuNav, menuBackgrounds, restaurantData } from '@/config/config';
+import { starterDataCategories, starterDataMenuItems, menuNav, menuBackgrounds, restaurantData, galleryItems } from '@/config/config';
 
 export const useStore = defineStore('app', {
   state: () => ({
@@ -7,7 +7,8 @@ export const useStore = defineStore('app', {
     menuBackgrounds: menuBackgrounds,
     menuAllItems: starterDataMenuItems,
     menuAllCategories: starterDataCategories,
-    restaurantData: restaurantData
+    restaurantData: restaurantData,
+    galleryItems: galleryItems
   })
 
   // actions: {

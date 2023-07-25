@@ -1,0 +1,158 @@
+.socials-sidebar {
+	position: fixed;
+	left: 0;
+	top: 50px;
+	height: fit-content;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	color: #fff;
+	background-color: rgba(255, 0, 0, 0.5);
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	padding: 16px 8px;
+	gap: 16px;
+	transform: translateX(-100px);
+	transition: all 0.2s;
+	
+	&.showed{
+		transform: translateX(0);
+	}
+
+	&__button {
+		width: 40px;
+		height: fit-content;
+		position: relative;
+		transform: translatex(-50px);
+		opacity: 0;
+		border-radius: 200px;
+		padding: 0;
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		// padding: 10px;
+		transition: all 0.2s;
+
+		&.showed {
+			transform: translatex(0);
+			opacity: 1;
+		}
+		svg {
+			width: 30px;
+			height: auto;
+		}
+
+		&.phone svg {
+			width: 25px;
+		}
+
+		.c1 {
+			fill: #fff;
+			transition: all 0.2s;
+		}
+
+		.c2 {
+			transition: all 0.2s;
+			fill: rgba(0, 0, 0, 1) !important;
+		}
+
+		&:hover {
+			&.phone {
+				color: #439b47;
+			}
+
+			&.facebook {
+				color: #1877f2;
+			}
+
+			&.instagram {
+				color: #c13584;
+			}
+
+			.c1 {
+				fill: #000a12;
+			}
+
+			.c2 {
+				fill: #fcc40f !important;
+			}
+		}
+	}
+
+	&__back-icon {
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		display: block;
+		position: relative;
+
+		&:hover {
+			&::before {
+				transform: translateX(17px) rotate(45deg);
+			}
+
+			&::after {
+				transform: translateX(-17px) rotate(-45deg);
+			}
+		}
+
+		&::before,
+		&::after {
+			content: "";
+			width: 50px;
+			height: 2px;
+			background-color: #ffffff;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: rotate(45deg);
+			transition: transform 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99),
+				-webkit-transform 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+		}
+
+		&::before {
+			transform: rotate(45deg);
+		}
+		&::after {
+			transform: rotate(-45deg);
+		}
+	}
+
+	&__text {
+		margin-top: 64px;
+		font-size: 52px;
+		font-weight: 600;
+		line-height: 1em;
+	}
+
+	&__desc {
+		margin-top: 16px;
+		margin-bottom: 96px;
+		font-size: 16px;
+		line-height: 1.2em;
+		padding: 6px 12px;
+		background-color: rgba(238, 52, 75, 1);
+		border-radius: 100px;
+	}
+
+	&__icon {
+		color: #fff;
+		background-color: rgba(238, 52, 75, 1);
+		border-radius: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, 50%);
+		width: 60px;
+		height: 60px;
+
+		svg {
+			width: 40px;
+			height: 40px;
+		}
+	}
+}
