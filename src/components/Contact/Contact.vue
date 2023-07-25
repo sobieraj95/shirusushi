@@ -129,5 +129,5 @@ const state = reactive({
 })
 </script>
 <style lang="scss">
-@import "contact.scss";
+@import "Contact.scss";
 </style>
