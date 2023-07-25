@@ -1,6 +1,6 @@
 <template>
     <div class="about">
-        <HeaderVerticalWithBackButton navData="AboutView" />
+        <HeaderWithBackButton navData="AboutView" />
         <div class="about__content">
             <div class="about__content-wrapper">
                 <span class="about__description">Od kilku lat w samym sercu miasta, parę kroków od Rynku, nieopodal Placu
@@ -53,7 +53,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import HeaderVerticalWithBackButton from '../_partials/HeaderVerticalWithBackButton/HeaderVerticalWithBackButton.vue';
+import HeaderWithBackButton from '../_partials/HeaderWithBackButton/HeaderWithBackButton.vue';
 // interface IProps {}
 // defineProps<IProps>()
 

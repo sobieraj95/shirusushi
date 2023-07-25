@@ -1,6 +1,6 @@
 <template>
     <div class="gallery">
-        <HeaderVerticalWIthBackButton navData="GalleryView" />
+        <HeaderWithBackButton navData="GalleryView" />
         <div class="gallery__content">
             <div class="gallery__content-wrapper">
                 <v-row>
@@ -21,7 +21,7 @@
 </template>
 <script setup lang="ts">
 import { reactive } from 'vue';
-import HeaderVerticalWIthBackButton from '../_partials/HeaderVerticalWIthBackButton/HeaderVerticalWIthBackButton.vue';
+import HeaderWithBackButton from '../_partials/HeaderWithBackButton/HeaderWithBackButton.vue';
 import { useStore } from '@/store/app';
 import { onMounted } from 'vue';
 

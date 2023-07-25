@@ -1,11 +1,10 @@
 
 <template>
     <div class="menu">
-        <HeaderVerticalWithBackButton navData="MenuView" />
+        <HeaderWithBackButton navData="MenuView" />
         <div class="menu__content">
             <div class="menu__content-wrapper">
                 <div class="menu__main-content">
-                    <!-- <HeaderWIthBackButton headerText="menu" /> -->
                     <!-- <div class="menu__nav-cover"></div> -->
                     <div class="menu__nav">
                         <div v-for="cat in  (state.sortedCategories as any)" :key="cat" class="menu__cat-button"
@@ -269,7 +268,7 @@
 <script lang="ts" setup>
 import { computed, reactive, ref } from 'vue';
 import { useStore } from '@/store/app';
-import HeaderVerticalWithBackButton from '../_partials/HeaderVerticalWithBackButton/HeaderVerticalWithBackButton.vue';
+import HeaderWithBackButton from '../_partials/HeaderWithBackButton/HeaderWithBackButton.vue';
 
 // import FullscreenModal from '../FulscreenModal/FulscreenModal.vue';
 import { onMounted } from 'vue';

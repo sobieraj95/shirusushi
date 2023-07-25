@@ -1,6 +1,6 @@
 <template>
     <div class="contact">
-        <HeaderVerticalWithBackButton navData="ContactView" />
+        <HeaderWithBackButton navData="ContactView" />
         <div class="contact__content">
             <div class="contact__content-wrapper">
                 <div class="contact__header-additional">Masz pytania?</div>
@@ -106,7 +106,7 @@
 </template>
 <script setup lang="ts">
 import { reactive } from 'vue';
-import HeaderVerticalWithBackButton from '../_partials/HeaderVerticalWithBackButton/HeaderVerticalWithBackButton.vue';
+import HeaderWithBackButton from '@/components/_partials/HeaderWithBackButton/HeaderWithBackButton.vue';
 // interface IProps {}
 // defineProps<IProps>()
 

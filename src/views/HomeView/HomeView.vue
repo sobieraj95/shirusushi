@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <SocialsSidebar />
+    <SocialsSidebar></SocialsSidebar>
     <Transition name="slide-fade">
       <!-- TODO overlay podjezdzajacy do góry   -->
       <div class="home-page__start-overlay" v-if="state.overlayStatus < 100">
@@ -10,7 +10,7 @@
         </div>
       </div>
     </Transition>
-    <swiper @slideChange="onSlideChange" :effect="'fade'" :modules="modules" :slides-per-view="1"
+    <swiper :effect="'fade'" :modules="modules" :slides-per-view="1"
       class="home-page__background" :autoplay="{ delay: 8000 }">
       <swiper-slide v-slot="{ isActive }">
         <img :class="{ 'active': isActive }" src="../../assets/menu-backgrounds/menu-1.jpg" alt="menu-background"

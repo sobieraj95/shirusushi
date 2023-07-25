@@ -1,6 +1,6 @@
 <template>
     <div class="catering">
-        <HeaderVerticalWithBackButton navData="CateringView" />
+        <HeaderWithBackButton navData="CateringView" />
         <div class="catering__content">
             <div class="catering__content-wrapper">
                 <div class="catering__description">Od kilku lat w samym sercu miasta, parę kroków od Rynku, nieopodal Placu
@@ -67,7 +67,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import HeaderVerticalWithBackButton from '../_partials/HeaderVerticalWithBackButton/HeaderVerticalWithBackButton.vue';
+import HeaderWithBackButton from '../_partials/HeaderWithBackButton/HeaderWithBackButton.vue';
 // interface IProps {}
 // defineProps<IProps>()
 

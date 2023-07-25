@@ -2,7 +2,7 @@
 <template>
     <div class="menu">
         <div class="menu__content">
-            <HeaderWIthBackButton headerText="menu"/>
+            <HeaderWIthBackButton navData="menu"/>
             <div class="menu__nav-cover"></div>
             <div class="menu__nav">
                 <div v-for="cat in  (state.sortedCategories as any)" :key="cat" class="menu__cat-button"

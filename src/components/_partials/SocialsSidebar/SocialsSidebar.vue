@@ -36,21 +36,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
-import { useStore } from '@/store/app';
-import { onMounted, reactive } from 'vue';
-const router = useRouter()
-
-const store = useStore();
-
-interface IProps { }
-const props = defineProps<{
-
-}>();
-
-const state = reactive({
-
-})
+import { onMounted } from 'vue';
 
 const showSocials = (socials: any[]) => {
     document.querySelector(`.socials-sidebar`)?.classList.add('showed');
