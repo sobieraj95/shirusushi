@@ -15,7 +15,6 @@ const router = useRouter()
 
 const store = useStore();
 
-interface IProps { }
 const props = defineProps<{
     navData: string,
 }>();

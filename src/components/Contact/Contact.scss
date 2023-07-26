@@ -137,7 +137,6 @@
 		width: 100%;
 	}
 
-	
 	&__map-header-additional {
 		font-size: 18px;
 		font-weight: 500;
@@ -160,10 +159,24 @@
 		background: #ee344b;
 	}
 
-	&__map{
+	&__map {
 		min-height: 400px;
 		height: 100%;
 		border-radius: 4px;
 		overflow: hidden;
+	}
+
+	&__tooltip {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		span,
+		p,
+		div {
+			text-align: center;
+			font-size: 14px;
+		}
 	}
 }
